@@ -122,6 +122,8 @@ add_action( 'widgets_init', 'scientist_is_awesome_widgets_init' );
 function scientist_is_awesome_scripts() {
 	wp_enqueue_style( 'scientist-is-awesome-style', get_stylesheet_uri() );
 
+	wp_enqueue_style( 'green-main-style', get_template_directory_uri() . '/css/main-green.css', [], '1.4');
+
 	wp_enqueue_script( 'scientist-is-awesome-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'scientist-is-awesome-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -129,6 +131,14 @@ function scientist_is_awesome_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	wp_enqueue_script( 'scientist-is-awesome-components-jquery', get_template_directory_uri() . '/components/jquery.min.js', array(), '1.4' );
+	wp_enqueue_script( 'scientist-is-awesome-components-wow', get_template_directory_uri() . '/components/wow.js', array(), '1.4');
+	
+
+	wp_enqueue_script( 'scientist-is-awesome-main', get_template_directory_uri() . '/js/main.js', array(), '1.4' );
+	wp_enqueue_script( 'scientist-is-awesome-map', get_template_directory_uri() . '/js/map.js', array(), '1.4' );
+	wp_enqueue_script( 'scientist-is-awesome-inview', get_template_directory_uri() . '/js/inview.min.js', array(), '1.4' );
+
 }
 add_action( 'wp_enqueue_scripts', 'scientist_is_awesome_scripts' );
 
